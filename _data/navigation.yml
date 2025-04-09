@@ -1,17 +1,17 @@
-- name: Home
-  link: /
-  new_window: false
-  highlight: true
 - name: Games
-  link: /pages/games
+  link: /games/
   new_window: false
   highlight: false
 - name: Forums
-  link: /pages/forum
+  link: /forum/
+  new_window: false
+  highlight: false
+- name: Blog
+  link: /blog/
   new_window: false
   highlight: false
 - name: Shop
-  link: /pages/shop
+  link: /shop/
   new_window: false
   highlight: false
 - name: Contact
