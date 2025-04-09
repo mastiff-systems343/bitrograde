@@ -37,9 +37,11 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 
-html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+ html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  background-color: rgb(22, 22, 29);
+  font-family: 'Press Start 2P', monospace;
 }
 
 /* Sections
@@ -51,6 +53,7 @@ html {
 
 body {
   margin: 0;
+  color: #fff;
 }
 
 /**
@@ -96,6 +99,7 @@ pre {
 
 a {
   background-color: transparent;
+  color: #fff;
 }
 
 /**
@@ -2020,70 +2024,10 @@ img { max-width: 100%; }
   font-family: serif;
 }
 
-/* Monospaced Typefaces (for code) */
-
-/* From http://cssfontstack.com */
-
-code, .code {
-  font-family: Consolas,
-               monaco,
-               monospace;
+.press-start {
+  font-family: 'Press Start 2P', cursive;
+  color: #fff;
 }
-
-.courier {
-  font-family: 'Courier Next',
-               courier,
-               monospace;
-}
-
-/* Sans-Serif Typefaces */
-
-.helvetica {
-  font-family: 'helvetica neue', helvetica,
-               sans-serif;
-}
-
-.avenir {
-  font-family: 'avenir next', avenir,
-               sans-serif;
-}
-
-/* Serif Typefaces */
-
-.athelas {
-  font-family: athelas,
-               georgia,
-               serif;
-}
-
-.georgia {
-  font-family: georgia,
-               serif;
-}
-
-.times {
-  font-family: times,
-               serif;
-}
-
-.bodoni {
-  font-family: "Bodoni MT",
-                serif;
-}
-
-.calisto {
-  font-family: "Calisto MT",
-                serif;
-}
-
-.garamond {
-  font-family: garamond,
-               serif;
-}
-
-.baskerville {
-  font-family: baskerville,
-               serif;
 }
 
 /*

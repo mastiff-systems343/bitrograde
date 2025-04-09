@@ -1,9 +1,17 @@
-- name: Products
+- name: Home
   link: /
   new_window: false
   highlight: true
-- name: About
-  link: /about/
+- name: Games
+  link: /pages/games
+  new_window: false
+  highlight: false
+- name: Forums
+  link: /pages/forum
+  new_window: false
+  highlight: false
+- name: Shop
+  link: /pages/shop
   new_window: false
   highlight: false
 - name: Contact

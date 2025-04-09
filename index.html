@@ -1,38 +1,33 @@
 ---
-title: Supply
-hero: Supply is a Jekyll theme for Gumroad creators.
-subtitle: An open source e-commerce template for Jekyll + Gumroad.
+title: Mastiff Gaming 
 ---
 
-<div itemscope itemtype="http://schema.org/ItemList" class="content" id="products">
-	<section class="cf pb5 ph6-ns ph2">
-		<div class="container flex-wrap flex">
+<section class="relative w-100 vh-100 overflow-hidden flex items-center justify-center">
+  <!-- Blurred Background Image -->
+  <img src="/images/home/main.jpg" alt="Blurred Background" class="absolute top-0 left-0 w-100 h-100 object-cover blur-3 z-0" style="filter: blur(12px);">
 
-				{% for product in site.products reversed %}
+  <!-- Overlay (optional for dark tint) -->
+  <div class="absolute top-0 left-0 w-100 h-100 z-1"></div>
 
-				<div itemprop="itemListElement" itemscope itemtype="http://schema.org/Product" class="product-list w-100 w-50-m ph2-m w-third-l ph3">
+  <!-- Main content container -->
+  <div class="relative z-2 flex flex-column flex-row-l items-center justify-center-l pa4-l pa3">
+    
+    <!-- Left: Key art -->
+		<div class="relative" style="overflow: visible;">
+			<img src="/images/home/main.jpg" alt="Drunk Pedestrians Key Art"
+					 class="w-100 br2 shadow-2"
+					 style="max-width: 2200px; transform: scale(1.5); margin-left: -5%; margin-right: -5%;" />
+		</div>		
 
-						<div itemprop="image" class="style aspect-ratio aspect-ratio--1x1" >
-							<a href="{{ product.url }}" style="background-image:url({{ product.image }});"
-						class="db bg-center cover aspect-ratio--object" /><h4 class="f4 helvetica bg-light-green no-underline white shadow-2 grow pa2 pv3 dib mr3">$ {{ product.price }}</h4>
-							</a>
-						</div>
+    <!-- Right: Logo & CTA - Overlapping key art -->
+    <div class="white tl-l tc mt0 mt4-ns relative z-3" style="margin-left: -5rem; max-width: 30rem;">
+      <img src="/images/home/drunk-pedestrians-logo.png" alt="Drunk Pedestrians" class="w-100 mb3" />
+      <p class="f5 f4-ns tracked-tight pink" style="font-family: 'Press Start 2P', cursive;">
+        WISHLIST <span class="light-purple">ON STEAM</span>
+      </p>
+    </div>
 
-						<article itemprop="itemListElement" itemscope itemtype="http://schema.org/Offer" class="product-details dib v-mid lh-copy avenir">
-							<h3><a  itemprop="url" class="f5 f4-ns mb0 link black-90 link dim avenir" href="{{ product.url }}"><span itemprop="name">{{ product.title }}</span></a></h3>
-							<h4 itemprop="itemOffered">Category: {{ product.cat }}</h4>
+  </div>
+</section>
 
-							<div itemprop="description" class="product-description f6 f5 fw4 mt1 black-60 pb4">
-								{{ product.description_markdown | truncate: 92 | markdownify }}
-							</div>
 
-						</article>
-
-				</div>
-				{% endfor %}
-
-		</div>
-
-		<div class="pa3">{% include site-search.html %}</div>
-	</section>
-</div>
