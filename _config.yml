@@ -1,9 +1,8 @@
 # This will be the first part of the title tag for your site <title> site.name + page.title </title>
-title: Supply
-url: "https://supply.templates.supply" # the base hostname & protocol for your site, e.g. http://example.com, also used in jekyll-seo-tag
-baseurl:
-repo: https://github.com/YJPL/Supply/
-google_analytics_key:
+title: Mastiff Gaming
+description: Indie game studio creating chaotic and stylized experiences.
+url: "https://mastiff-systems343.github.io/"
+baseurl: "/gaming"
 
 # Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
 logo: \images\logo.png
@@ -28,7 +27,7 @@ collections:
     _hide_content: false
     output: true
 
-permalink: /:title/ # pretty
+permalink: /:title/ 
 
 defaults:
   -
