@@ -91,11 +91,6 @@ social_icons:
   - YouTube
   - RSS
 
-feed:
-  collections:
-    products:
-      path: "/products.xml"
-
 # Jekyll Archives Settings https://github.com/jekyll/jekyll-archives
 jekyll-archives:
   enabled: 'all'

@@ -1,7 +1,7 @@
 ---
-title: "Drunk Pedestrians vs The Whore’s Heads"
+title: "Drunk Pedestrians vs The Whore's Heads"
 price: "Free"
-image: "\images\games\game-1.jpg"
+image: "/images/games/game-1.jpg"
 software: "Software Name"
 description_markdown: "Brief description of the game."
 ---
@@ -19,4 +19,3 @@ This is a free spreadsheet template for [Apple Numbers](https://www.apple.com/nu
 
 <a href="https://gum.co/invoices-tracker" class="no-underline pv2 grow db"><img class="w-100" src="{{site.baseurl}}/images/templates/assignments/assignments_tracker_spreadsheet.png"></a>
 
-{% include gumroad-overlay.html id="invoices-tracker" %}
