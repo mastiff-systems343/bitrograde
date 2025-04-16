@@ -1,33 +1,85 @@
 ---
 layout: default
 ---
-<div class="content content pa3 ph6-l">
-	<section class="page measure-wide f5 f4-ns lh-copy avenir">
-			<div itemscope itemtype="http://schema.org/Product" class="product-container {% if page.full_width %}max-container{% endif %}">
 
-						{{ content }}
-			</div>
+<main class="product-page">
+  <div class="page-container">
+    <div class="product-wrapper">
 
-				{% include product-styles.html product=page %}
-				<div itemscope itemtype="http://schema.org/Offer" class="w-100 w-50ns product-details measure-wide lh-copy f5 f4-ns helvetica black-60" id="add">
-					
-					<h4 itemprop="itemOffered">Software: {{ page.software | join: ' ' }}</h4>
-					
-					{% comment %} Note that you can of course use your own custom front matter variable here, instead of "Software", see https://templates.supply/sorting-jekyll-collections-by-custom-variable/ {% endcomment %}
+      <!-- Product Image + Gallery -->
+      <div class="product-image">
+        <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
 
-					{% if page.format %}
-					<h5>Format: {{ page.format }}</h5>
-					{% endif %}
+        {% if page.gallery %}
+        <div class="product-gallery">
+          {% for img in page.gallery %}
+            <img src="{{ img | relative_url }}" alt="Gallery image" onclick="openLightbox({{ forloop.index0 }})">
+          {% endfor %}
+        </div>
+        {% endif %}
+      </div> <!-- ✅ Properly closed -->
 
-					{% if page.ratio %}
-					<h5>Film Ratio: {{ page.ratio }}</h5>
-					{% endif %}
+      <!-- Product Details -->
+      <div class="product-details">
+        <h1>{{ page.title }}</h1>
+        <p class="product-price">${{ page.price }}</p>
 
-<span itemprop="description">
-					{{ page.description_markdown | markdownify }}
-</span>
-					<h4 itemprop="priceCurrency" content="USD"></span>$ <span itemprop="price" content="{{ page.price }}">{{ page.price }}</h4>
+        {% if page.description %}
+          <p class="product-description">{{ page.description }}</p>
+        {% endif %}
 
-		</div>
-	</section>
+        {{ content }}
+
+        {% if page.stripe_url %}
+          <a href="{{ page.stripe_url }}" target="_blank" class="buy-btn">Buy Now</a>
+        {% else %}
+          <p class="sold-out">SOLD OUT</p>
+        {% endif %}
+
+        <a href="{{ site.baseurl }}/shop/" class="back-link">← Back to Shop</a>
+      </div>
+
+    </div>
+  </div>
+</main>
+
+<!-- Lightbox Overlay -->
+<div id="lightbox" onclick="closeLightbox(event)">
+  <img id="lightbox-img" src="" alt="Expanded image">
+  <button class="lightbox-prev" onclick="prevImage(event)">‹</button>
+  <button class="lightbox-next" onclick="nextImage(event)">›</button>
 </div>
+
+<script>
+  const gallery = {{ page.gallery | jsonify }};
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    updateLightboxImage();
+    document.getElementById('lightbox').classList.add('show');
+  }
+
+  function closeLightbox(event) {
+    if (event.target.id === 'lightbox') {
+      document.getElementById('lightbox').classList.remove('show');
+    }
+  }
+
+  function updateLightboxImage() {
+    const img = document.getElementById('lightbox-img');
+    img.src = "{{ site.baseurl }}" + gallery[currentIndex];
+  }
+
+  function nextImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex + 1) % gallery.length;
+    updateLightboxImage();
+  }
+
+  function prevImage(event) {
+    event.stopPropagation();
+    currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
+    updateLightboxImage();
+  }
+</script>

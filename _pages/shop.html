@@ -3,56 +3,63 @@ layout: default
 title: Shop
 permalink: /shop/
 ---
+
 <section>
   <div class="page-container">
-  <div class="shop-container">
+    <div class="shop-container">
 
-    <!-- Sidebar Filters -->
-    <aside class="sidebar">
-      <h3>CATEGORY</h3>
-      <ul>
-        <li>Lorem</li>
-        <li>Lorem</li>
-        <li>Lorem</li>
-      </ul>
-  
-      <h3>PLATFORM</h3>
-      <ul>
-        <li>Lorem</li>
-        <li>Lorem</li>
-        <li>Lorem</li>
-      </ul>
-  
-      <h3>LANGUAGE</h3>
-      <ul>
-        <li>Lorem</li>
-        <li>Lorem</li>
-        <li>Lorem</li>
-      </ul>
-  
-      <h3>PRICING</h3>
-      <input type="range" min="0" max="100" />
-    </aside>
-  
-    <!-- Shop Grid -->
-    <section class="shop-grid">
-  
-      <!-- Game Item -->
-      <div class="card">
+      <!-- Sidebar Filters -->
+      <aside class="sidebar">
+        <h3>CATEGORY</h3>
+        <ul>
+          <li>Lorem</li>
+          <li>Lorem</li>
+          <li>Lorem</li>
+        </ul>
+
+        <h3>PLATFORM</h3>
+        <ul>
+          <li>Lorem</li>
+          <li>Lorem</li>
+          <li>Lorem</li>
+        </ul>
+
+        <h3>LANGUAGE</h3>
+        <ul>
+          <li>Lorem</li>
+          <li>Lorem</li>
+          <li>Lorem</li>
+        </ul>
+
+        <h3>PRICING</h3>
+        <input type="range" min="0" max="100" />
+      </aside>
+
+<!-- Shop Grid -->
+<section class="shop-grid">
+  {% for product in site.products %}
+    <div class="card">
+      <a href="{{ product.url | relative_url }}" class="card-link">
         <div class="image-wrapper">
-          <img src="{{ site.baseurl }}/images/games/game-1.jpg" alt="Game Art">
-          <div class="sold-out">SOLD OUT</div>
+          <img src="{{ product.image | relative_url }}" alt="{{ product.title }}">
+          {% if product.sold_out %}
+            <div class="sold-out">SOLD OUT</div>
+          {% endif %}
         </div>
-        <h4>ITEM NAME</h4>
-        <div class="price-tag">$9.99</div>
-      </div>      
-  
-      <div class="card">
-        <img src="{{ site.baseurl }}/images/games/game-1.jpg" alt="Game Art">
-        <h4>ITEM NAME</h4>
-        <div class="price-tag">$9.99</div>
-      </div>
 
-  </section>
-</div>
-</div>
+        <div class="card-details">
+          <h4>{{ product.title }}</h4>
+          <div class="price-tag">${{ product.price }}</div>
+        </div>
+      </a>
+
+      {% unless product.sold_out %}
+        <a href="{{ product.stripe_url }}" target="_blank" class="buy-btn">Buy Now</a>
+      {% endunless %}
+    </div>
+  {% endfor %}
+</section>
+
+    </div>
+  </div>
+</section>

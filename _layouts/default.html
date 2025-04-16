@@ -27,15 +27,24 @@
 	<body>
 		<header>
 			<div class="container">
-				<div class="company-name db dt-l w-100 border-box pa3 ph6-l"></div>
 				{% include navigation.html %}
 			</div>
 		</header>
 
+		<img src="{{ site.baseurl }}/images/home/Universe.png" 
+		alt="Blurred Background" 
+		class="background-image" />
+
 		<div class="">
-
-		{{ content }}
-
-	</div>
-	</body>
-</html>
+			{{ content }}
+		</div>
+		
+		<br>
+		<br>
+		<br>
+		<br>
+		{% include footer.html %}
+		
+		</body>
+		</html>
+		

@@ -5,6 +5,19 @@
   box-sizing: border-box;
 }
 
+.background-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+} 
+
+.social-icons svg {
+  fill: white !important;
+}
 
 /* GAMES */
 .grid {
@@ -56,6 +69,85 @@
   border-radius: 4px;
   font-size: 10px;
 }
+
+/* BLOG */
+.blog-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 0; 
+}
+
+.post {
+  border: 2px dashed #00cfff;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  min-height: 220px;
+}
+
+.post h2 {
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.author {
+  font-size: 10px;
+  color: #aaa;
+  margin-bottom: 12px;
+}
+
+.excerpt {
+  font-size: 12px;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.pagination {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.pagination a,
+.pagination span {
+  color: white;
+  padding: 10px 14px;
+  text-decoration: none;
+  border: 1px solid #00cfff;
+  margin: 0 5px;
+}
+
+.pagination a.active {
+  background-color: #00cfff;
+  color: black;
+}
+
+.post-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.categories {
+  font-size: 10px;
+  margin-bottom: 10px;
+}
+
+.category {
+  background: #00cfff;
+  color: black;
+  padding: 2px 6px;
+  margin-right: 4px;
+  border-radius: 3px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
 
 /* SHOP */
 .shop-container {
@@ -154,6 +246,155 @@
   border-radius: 6px;
 }
 
+.buy-btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: #635bff;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+.buy-btn:hover {
+  background-color: #4438ff;
+}
+
+/* PRODUCTS */
+.product-wrapper {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.product-image img {
+  max-width: 600px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 3px solid #00bfff;
+  border-radius: 12px;
+}
+
+.product-details {
+  flex: 1;
+  max-width: 500px;
+}
+
+.product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.product-description {
+  margin-bottom: 1.5rem;
+}
+
+.buy-btn {
+  display: inline-block;
+  background-color: #635bff;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.buy-btn:hover {
+  background-color: #4a44db;
+}
+
+.sold-out {
+  font-weight: bold;
+  color: crimson;
+  font-size: 1.2rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  text-decoration: none;
+  color: #555;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.back-link:hover {
+  color: #000;
+}
+
+.product-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1rem;
+}
+.product-gallery img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.product-gallery img:hover {
+  transform: scale(1.05);
+}
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+}
+#lightbox.show {
+  display: flex;
+  animation: fadeIn 0.3s ease;
+}
+
+#lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: none;
+  font-size: 2rem;
+  color: white;
+  padding: 10px 16px;
+  cursor: pointer;
+  z-index: 10000;
+  transition: background 0.2s;
+}
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: rgba(255,255,255,0.3);
+}
+.lightbox-prev {
+  left: 20px;
+}
+.lightbox-next {
+  right: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* FORUM */
 .search-bar {
   display: flex;
@@ -214,4 +455,23 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 6px;
+}
+
+/* FOOTER */
+.footer-fade {
+  position: relative;
+  background-color: rgb(22, 22, 29);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-fade::before {
+  content: "";
+  position: absolute;
+  top: -40px;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgb(22, 22, 29));
+  pointer-events: none;
 }

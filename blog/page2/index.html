@@ -1,0 +1,48 @@
+---
+layout: default
+title: Blog - Page 2
+---
+
+<div class="blog-container">
+  {% for post in site.posts offset:3 limit:3 %}
+    <div class="post">
+      <a href="{{ post.url | relative_url }}">
+        {% if post.image %}
+          <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" class="post-image" />
+        {% endif %}
+        <h2>{{ post.title }}</h2>
+        <p class="author">By {{ post.author | default: site.author.name }}</p>
+        {% if post.categories %}
+          <p class="categories">
+            {% for category in post.categories %}
+              <span class="category">{{ category }}</span>
+            {% endfor %}
+          </p>
+        {% endif %}
+        <p class="excerpt">{{ post.excerpt | strip_html | truncate: 150 }}</p>
+      </a>
+    </div>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% assign total_posts = site.posts | size %}
+  {% assign posts_per_page = 3 %}
+  {% assign total_pages = total_posts | divided_by: posts_per_page | ceil %}
+  
+  <a href="{{ '/blog/' | relative_url }}">&laquo;</a>
+  
+  {% for i in (1..total_pages) %}
+    {% if i == 2 %}
+      <a class="active" href="#">{{ i }}</a>
+    {% elsif i == 1 %}
+      <a href="{{ '/blog/' | relative_url }}">{{ i }}</a>
+    {% else %}
+      <a href="{{ '/blog/page' | append: i | append: '/' | relative_url }}">{{ i }}</a>
+    {% endif %}
+  {% endfor %}
+  
+  {% if total_pages > 2 %}
+    <a href="{{ '/blog/page3/' | relative_url }}">&raquo;</a>
+  {% endif %}
+</div>

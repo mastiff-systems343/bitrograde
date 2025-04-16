@@ -1,3 +1,7 @@
+- name: About
+  link: /about/
+  new_window: false
+  highlight: false
 - name: Games
   link: /games/
   new_window: false

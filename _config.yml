@@ -1,17 +1,18 @@
-# This will be the first part of the title tag for your site <title> site.name + page.title </title>
+# Site settings
 title: Mastiff Gaming
 description: Indie game studio creating chaotic and stylized experiences.
 url: "https://mastiff-systems343.github.io/"
 baseurl: "/gaming"
+timezone: America/Chicago
+future: true
 
-# Values for the jekyll-seo-tag gem (https://github.com/jekyll/jekyll-seo-tag)
+# SEO
 logo: /images/logo.png
 tagline:
-description: Jekyll template for e-commerce with Gumroad integration
 author:
   name: Mastiff Gaming
   email:
-  bluesky: mastiffgaming.bsky.social 
+  bluesky: mastiffgaming.bsky.social
   phone: ""
 social:
   name: Mastiff Gaming
@@ -20,47 +21,63 @@ social:
 
 # Build settings
 markdown: kramdown
-timezone: America/Chicago
+permalink: /:title/
 
+# Collections
 collections:
   games:
     _hide_content: false
     output: true
+  products:
+    output: true
 
-permalink: /:title/ 
-
+# Defaults
 defaults:
-  -
-    scope:
+  - scope:
       path: ""
       type: "games"
     values:
       layout: "game"
-  -
-    scope:
+  - scope:
       path: ""
     values:
       layout: "page"
-  -
-    scope:
+  - scope:
       path: "index.html"
     values:
       layout: "default"
 
-jekyll-archives:
-  enabled:
-    - categories
-
+# Plugins
 plugins:
   - jekyll-sitemap
   - jekyll-seo-tag
   - jekyll-leaflet
   - jekyll-feed
-  - jekyll-archives # not on Supply theme
+  - jekyll-archives
+  - jekyll-paginate
 
+# Pagination
+paginate: 3
+paginate_path: "/blog/page/:num/"
+
+# Archives
+jekyll-archives:
+  enabled: ['all']
+  layout: archive
+  permalinks:
+    year: '/:year/'
+    month: '/:year/:month/'
+    day: '/:year/:month/:day/'
+    tag: '/tag/:name/'
+    category: '/:name/'
+  category_archive:
+    type: liquid
+
+# Includes / Excludes
 include:
   - .htaccess
   - _pages
+
 
 exclude:
   - Gemfile
@@ -73,11 +90,10 @@ exclude:
   - vendor/gems/
   - vendor/ruby/
 
-# Contact settings
-formcarry: https://formcarry.com/ # add you formcarry endpoint url (see https://formcarry.com/documentation/getting-started)
+# Contact
+formcarry: https://formcarry.com/
 
-# Social
-
+# Social icons (if theme supports them)
 social_icons:
   - Email
   - Facebook
@@ -89,17 +105,3 @@ social_icons:
   - Twitter
   - YouTube
   - RSS
-
-# Jekyll Archives Settings https://github.com/jekyll/jekyll-archives
-jekyll-archives:
-  enabled: 'all'
-  layout: 'archive'
-  permalinks:
-    year: '/:year/'
-    month: '/:year/:month/'
-    day: '/:year/:month/:day/'
-    tag: '/tag/:name/'
-    category: '/:name/'
-  category_archive:
-    type: liquid
-
