@@ -99,6 +99,14 @@
   min-height: 220px;
 }
 
+.content {
+  font-family: "Share Tech Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
 .post h2 {
   font-size: 14px;
   margin-bottom: 10px;
@@ -112,7 +120,8 @@
 }
 
 .excerpt {
-  font-size: 12px;
+  font-family: "Share Tech Mono", monospace;
+  font-size: 14px;
   line-height: 1.4;
   color: #fff;
 }
@@ -486,4 +495,8 @@
   height: 40px;
   background: linear-gradient(to bottom, transparent, rgb(22, 22, 29));
   pointer-events: none;
+}
+
+.footer-nav h4, li {
+  font-family: "Share Tech Mono", monospace;
 }

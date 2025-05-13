@@ -3,7 +3,7 @@ layout: post
 title: "My games of 2024 started healing my inner child"
 author: MJ Torres, Designer
 categories: [devlog, career]
-image: "/images/games/game-1.jpg"
+image: "/images/blog/4-change.png"
 permalink: /blog/4/
 ---
 

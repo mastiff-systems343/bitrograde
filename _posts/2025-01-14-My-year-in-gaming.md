@@ -3,7 +3,7 @@ layout: post
 title: "My year in gaming"
 author: Chris Scheidies, Owner
 categories: [devlog, career]
-image: "/images/games/game-1.jpg"
+image: "/images/blog/2-zelda.png"
 permalink: /blog/2/
 ---
 

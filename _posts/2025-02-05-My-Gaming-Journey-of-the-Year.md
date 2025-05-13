@@ -3,7 +3,7 @@ layout: post
 title: "My Gaming Journey of the Year"
 author: John David Lao, Game Developer
 categories: [devlog, career]
-image: "/images/games/game-1.jpg"
+image: "/images/blog/3-cod.png"
 permalink: /blog/3/
 ---
 
