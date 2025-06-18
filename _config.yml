@@ -1,8 +1,8 @@
 # Site settings
 title: Mastiff Gaming
 description: Indie game studio creating chaotic and stylized experiences.
-url: "https://mastiff-systems343.github.io/"
-baseurl: "/gaming"
+url: "https://bitrograde.com"
+baseurl: ""
 timezone: America/Chicago
 future: true
 
