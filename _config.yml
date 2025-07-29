@@ -1,5 +1,5 @@
 # Site settings
-title: Mastiff Gaming
+title: Bitrograde
 description: Indie game studio creating chaotic and stylized experiences.
 url: "https://bitrograde.com"
 baseurl: ""
@@ -7,15 +7,15 @@ timezone: America/Chicago
 future: true
 
 # SEO
-logo: /images/logo.png
+logo: /images/B-logo.png
 tagline:
 author:
-  name: Mastiff Gaming
+  name: Bitrograde
   email:
   bluesky: mastiffgaming.bsky.social
   phone: ""
 social:
-  name: Mastiff Gaming
+  name: Bitrograde
   links:
     - https://github.com/mastiff-systems
 
