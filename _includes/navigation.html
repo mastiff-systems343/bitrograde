@@ -1,58 +1,24 @@
 <!-- Full nav + GitHub corner container with gray background -->
-<div style="background-color: rgb(22, 22, 29); position: relative;">
-
-  <!-- Top Row: Social Links -->
-  <div id="top-bar" style="background-color: #0080a6;" class="w-100 flex items-start justify-between pv3 ph5 transition-all duration-300">
-    <!-- Left Social Icons (align to top of logo) -->
-    <div class="w-20 flex items-start justify-center">
-      <a class="GitHub dim mr3" href="https://github.com/mastiff-systems" title="GitHub" target="_blank">
-        {% include social-icon.html icon="GitHub" %}
-      </a>
-      <a class="discord dim" href="https://discord.gg/ugJw9Uem" title="Discord" target="_blank">
-        {% include social-icon.html icon="Discord" %}
-      </a>
-    </div>
-
-    <!-- Center Button -->
-    <div class="w-60 tc flex justify-center items-start">
-      <a href="https://discord.gg/ugJw9Uem" class="bg-red white pa1 br1 fw3 dim no-underline tracked">
-        Join the Community
-      </a>
-    </div>
-
-    <!-- Right Social Icons (align to top of Itch.io) -->
-    <div class="w-20 flex items-start">
-      <a class="bluesky dim mr3" href="https://bsky.app/profile/mastiffgaming.bsky.social" title="Bluesky" target="_blank">
-        {% include social-icon.html icon="Bluesky" %}
-      </a>
-      <a class="mastodon dim" href="https://mastodon.social/@mastiffgaming" title="Mastodon" target="_blank">
-        {% include social-icon.html icon="Mastodon" %}
-      </a>
-    </div>
-  </div>
-
+<div style="background-color: #0a0a0f; position: relative;">
   <!-- Nav Bar -->
-  <nav class="w-100 flex items-center justify-between pv3 ph5">
-    <!-- Left: Logo -->
-    <div class="w-20 tr flex items-center justify-end">
-      <a href="{{ site.baseurl }}/" class="flex items-center white no-underline">
-        <img src="{{ site.baseurl }}/images/logo.png" alt="Mastiff Logo" class="h3 w3 mr3" />
-        <span class="f5 f4-l b tracked-tight press-start">MASTIFF<br/>GAMING</span>
-      </a>
-    </div>
-
-    <!-- Center: Nav -->
-    <div class="w-60 tc">
+  <nav class="w-100 flex items-center justify-between pv3 ph4 gap-3">
+    
+    <!-- Center: Navigation Links -->
+    <div class="w-70 flex justify-center">
       {% assign nav_size = site.data.navigation | size %}
       {% for link in site.data.navigation %}
-        {% assign class = "white link dim ph2 mh1 f6 f5-l sans-serif press-start" %}
+        {% assign class = "white link dim ph2 mh1 f6 f5-l sans-serif orbitron" %}
         {% if link.highlight %}
           {% assign class = class | append: " highlight" %}
         {% endif %}
         {% if link.link == page.url %}
           {% assign class = class | append: " ba b--solid pv1 ph2 red grow" %}
         {% endif %}
-        <a href="{% include relative-src.html src=link.link %}" class="{{ class }}" {% if link.new_window %}target="_blank"{% endif %}>
+        <a 
+          href="{% include relative-src.html src=link.link %}" 
+          class="{{ class }}" 
+          {% if link.new_window %}target="_blank"{% endif %}
+        >
           {{ link.name }}
         </a>
         {% unless forloop.last %}
@@ -61,17 +27,23 @@
       {% endfor %}
     </div>
 
-    <!-- Right: Itch.io -->
-    <div class="w-20 tl">
-      <a class="dib h2 w2 v-mid" href="https://itch.io/profile/vioura" title="itch.io" target="_blank">
-        <img src="{{ site.baseurl }}/images/itchio-textless-white.svg" alt="itch.io" class="h2 w2" />
-      </a>
-    </div>
+<!-- Social Icons -->
+<div class="w-30 social-icons">
+  <a href="https://itch.io/profile/vioura" title="itch.io" target="_blank">
+    <img src="{{ site.baseurl }}/images/itchio-textless-white.svg" alt="itch.io" />
+  </a>
+  <a href="https://bsky.app/profile/mastiffgaming.bsky.social" title="Bluesky" target="_blank">
+    {% include social-icon.html icon="Bluesky" %}
+  </a>
+  <a href="https://mastodon.social/@mastiffgaming" title="Mastodon" target="_blank">
+    {% include social-icon.html icon="Mastodon" %}
+  </a>
+  <a href="https://github.com/mastiff-systems" title="GitHub" target="_blank">
+    {% include social-icon.html icon="GitHub" %}
+  </a>
+</div>
+    
   </nav>
-
-  <!-- Pixel Bar Lines -->
-  <div style="height: 12px; background-color: #0080a6;"></div>
-  <div style="height: 6px; background-color: #0080a6; margin-top: 6px;"></div>
 </div>
 
 <script>

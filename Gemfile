@@ -5,6 +5,7 @@ git_source(:github) {|supply| "https://github.com/YJPL/{supply}" }
 gem "jekyll"
 gem "tzinfo", "2.0.6"
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'sassc'
 
 gem "github-pages", group: :jekyll_plugins
 

@@ -4,7 +4,7 @@ title: Home
 
 <section class="relative w-100 vh-100 overflow-hidden flex items-center justify-center">
   <!-- Blurred Background Image -->
-  <img src="{{ site.baseurl }}/images/home/main.jpg" alt="Blurred Background" class="absolute top-0 left-0 w-100 h-100 object-cover blur-3 z-0" style="filter: blur(12px);">
+  <img src="{{ site.baseurl }}/images/home/Universe.gif" alt="Blurred Background" class="absolute top-0 left-0 w-100 h-100 object-cover z-0">
 
   <!-- Overlay (optional for dark tint) -->
   <div class="absolute top-0 left-0 w-100 h-100 z-1"></div>
@@ -12,22 +12,80 @@ title: Home
   <!-- Main content container -->
   <div class="relative z-2 flex flex-column flex-row-l items-center justify-center-l pa4-l pa3">
     
-    <!-- Left: Key art -->
-		<div class="relative" style="overflow: visible;">
-			<img src="{{ site.baseurl }}/images/home/main.jpg" alt="Drunk Pedestrians Key Art"
-					 class="w-100 br2 shadow-2"
-					 style="max-width: 2200px; transform: scale(1.5); margin-left: -5%; margin-right: -5%;" />
-		</div>		
-
-    <!-- Right: Logo & CTA - Overlapping key art -->
-    <div class="white tl-l tc mt0 mt4-ns relative z-3" style="margin-left: -5rem; max-width: 30rem;">
-      <img src="{{ site.baseurl }}/images/home/drunk-pedestrians-logo.png" alt="Drunk Pedestrians" class="w-100 mb3" />
-      <p class="f5 f4-ns tracked-tight pink" style="font-family: 'Press Start 2P', cursive;">
-        WISHLIST <span class="light-purple">ON STEAM</span>
-      </p>
-    </div>
+<!-- Left: Key art -->
+<div class="relative flex justify-center items-center" style="overflow: visible;">
+  <img 
+    src="{{ site.baseurl }}/images/home/Logo-White.png" 
+    alt="Drunk Pedestrians Key Art"
+    style="max-width: 500px; transform: scale(1.5); margin: 0 auto;" 
+  />
+</div>	
 
   </div>
 </section>
+
+<section
+  class="pv5 ph3 flex flex-column items-center justify-center tc"
+  style="
+    background: 
+      linear-gradient(to bottom, rgba(11,12,36,0) 0%, rgba(99, 102, 241,0.5) 30%, #6366f1 100%),
+      url('{{ site.baseurl }}/images/home/Universe.gif') top center no-repeat;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    min-height: 50vh;
+    color: white;
+  "
+>
+
+  <h2 class="f2 f1-ns fw7 mb3" style="color: #06b6d4;">
+    Ready to Rock the Cosmos?
+  </h2>
+
+  <div class="center" style="max-width: 55rem;">
+    <p class="f5 f4-ns stellar-white">
+      You've stumbled upon Earth's most unlikely heroes facing the galaxy's most incompetent invasion.
+      Armed with liquid courage and questionable decision-making skills, you set out to save humanity... probably!
+    </p>
+  </div>
+
+
+  
+<div class="gallery">
+  <img src="{{ site.baseurl }}/images/home/gallery/1-med.jpg" class="gallery-image active" alt="Infirmary">
+  <img src="{{ site.baseurl }}/images/home/gallery/2-dining-hall.jpg" class="gallery-image" alt="Dining Hall">
+  <img src="{{ site.baseurl }}/images/home/gallery/3-lounge.jpg" class="gallery-image" alt="Lounge">
+  <img src="{{ site.baseurl }}/images/home/gallery/4-observation-deck.jpg" class="gallery-image" alt="Observation Deck">
+
+  <button class="gallery-nav prev" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="gallery-nav next" onclick="changeSlide(1)">&#10095;</button>
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.gallery-image');
+  const totalSlides = slides.length;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.remove('active');
+      if (i === index) slide.classList.add('active');
+    });
+  }
+
+  function changeSlide(direction) {
+    currentSlide = (currentSlide + direction + totalSlides) % totalSlides;
+    showSlide(currentSlide);
+  }
+
+  setInterval(() => {
+    changeSlide(1);
+  }, 5000);
+
+  showSlide(currentSlide);
+</script>
+</section>
+
+
 
 
