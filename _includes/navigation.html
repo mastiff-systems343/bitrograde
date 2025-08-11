@@ -1,48 +1,40 @@
-<!-- Full nav + GitHub corner container with gray background -->
-<div style="background-color: #0a0a0f; position: relative;">
-  <!-- Nav Bar -->
-  <nav class="w-100 flex items-center justify-between pv3 ph4 gap-3">
-    
-    <!-- Center: Navigation Links -->
-    <div class="w-70 flex justify-center">
-      {% assign nav_size = site.data.navigation | size %}
-      {% for link in site.data.navigation %}
-        {% assign class = "white link dim ph2 mh1 f6 f5-l sans-serif orbitron" %}
-        {% if link.highlight %}
-          {% assign class = class | append: " highlight" %}
-        {% endif %}
-        {% if link.link == page.url %}
-          {% assign class = class | append: " ba b--solid pv1 ph2 red grow" %}
-        {% endif %}
-        <a 
-          href="{% include relative-src.html src=link.link %}" 
-          class="{{ class }}" 
-          {% if link.new_window %}target="_blank"{% endif %}
-        >
-          {{ link.name }}
+<div style="background-color: #0a0a0f;">
+  <nav class="site-nav">
+
+    <!-- Mobile Menu Toggle (left on mobile) -->
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="menu-icon">☰</label>
+
+    <!-- CENTERED GROUP (links + icons) -->
+    <div class="nav-center">
+      <!-- Navigation Links -->
+      <div class="nav-links">
+        {% for link in site.data.navigation %}
+          <a href="{% include relative-src.html src=link.link %}"
+             class="{% if link.highlight %}highlight {% endif %}{% if link.link == page.url %}active{% endif %}">
+            {{ link.name }}
+          </a>
+          {% unless forloop.last %}<span>|</span>{% endunless %}
+        {% endfor %}
+      </div>
+
+      <!-- Social Icons -->
+      <div class="social-icons">
+        <a href="https://itch.io/profile/vioura" target="_blank">
+          <img src="{{ site.baseurl }}/images/itchio-textless-white.svg" alt="itch.io" />
         </a>
-        {% unless forloop.last %}
-          <span class="white mh1">|</span>
-        {% endunless %}
-      {% endfor %}
+        <a href="https://bsky.app/profile/bitrograde.bsky.social" target="_blank">
+          {% include social-icon.html icon="Bluesky" %}
+        </a>
+        <a href="https://mastodon.social/@bitrograde" target="_blank">
+          {% include social-icon.html icon="Mastodon" %}
+        </a>
+        <a href="https://github.com/mastiff-systems" target="_blank">
+          {% include social-icon.html icon="GitHub" %}
+        </a>
+      </div>
     </div>
 
-<!-- Social Icons -->
-<div class="w-30 social-icons">
-  <a href="https://itch.io/profile/vioura" title="itch.io" target="_blank">
-    <img src="{{ site.baseurl }}/images/itchio-textless-white.svg" alt="itch.io" />
-  </a>
-  <a href="https://bsky.app/profile/bitrograde.bsky.social" title="Bluesky" target="_blank">
-    {% include social-icon.html icon="Bluesky" %}
-  </a>
-  <a href="https://mastodon.social/@bitrograde" title="Mastodon" target="_blank">
-    {% include social-icon.html icon="Mastodon" %}
-  </a>
-  <a href="https://github.com/mastiff-systems" title="GitHub" target="_blank">
-    {% include social-icon.html icon="GitHub" %}
-  </a>
-</div>
-    
   </nav>
 </div>
 

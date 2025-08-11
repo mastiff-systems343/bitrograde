@@ -15,6 +15,124 @@
   z-index: -1;
 } 
 
+:root{
+  --nav-max-width: 900px; /* smaller → everything sits closer to center */
+}
+
+/* Base nav */
+nav.site-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* menu left, .nav-center fills remaining space */
+  padding: 0.75rem 1rem;
+  background: #0a0a0f;
+}
+
+/* Hide native checkbox */
+#menu-toggle { display: none; }
+
+/* Menu icon on mobile (left) */
+.menu-icon {
+  display: block;
+  font-size: 1.4rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 60;
+}
+
+/* The centered group that contains links + icons */
+.nav-center {
+  flex: 1;
+  max-width: var(--nav-max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* icons will sit to the right on mobile */
+  gap: 1rem;
+  padding: 0 0.5rem;
+}
+
+/* NAV LINKS — hidden on mobile, dropdown when toggled */
+.nav-links {
+  display: none;
+  position: absolute;      /* drop beneath the nav */
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #0a0a0f;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  z-index: 50;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-family: Orbitron, sans-serif;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.5rem;
+}
+
+.nav-links a:hover { opacity: 0.85; }
+.nav-links a.active { border: 1px solid red; padding: 0.25rem 0.5rem; }
+
+/* show nav links when menu checkbox checked */
+#menu-toggle:checked ~ .nav-center .nav-links {
+  display: flex;
+}
+
+/* Social icons (always visible) */
+.social-icons {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+}
+.social-icons img, .social-icons svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  display: block;
+}
+
+/* ---------- Desktop layout: center the whole group ---------- */
+@media (min-width: 640px) {
+
+  /* hide mobile menu button on desktop */
+  .menu-icon { display: none; }
+
+  /* center the whole .nav-center block horizontally */
+  nav.site-nav {
+    justify-content: center;
+  }
+
+  .nav-center {
+    justify-content: center;   /* center links + icons as one block */
+    gap: 2rem;                 /* space between links and icons — tweak as needed */
+  }
+
+  /* show links inline (not dropdown) */
+  .nav-links {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    gap: 0.6rem;
+    width: auto;
+    padding: 0;
+    background: none;
+  }
+
+  /* show separators on desktop */
+  .nav-links span { display: inline; color: #fff; margin: 0 0.35rem; }
+}
+
+@media (max-width: 639px) {
+  .nav-links span {
+    display: none;
+  }
+}
+
 .social-icons svg {
   fill: white !important;
 }
@@ -33,6 +151,77 @@
 
 .orbitron {
   font-family: 'Orbitron', sans-serif;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  padding: 2rem 1rem;
+}
+
+.logo-image {
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+/* Desktop styles (default) */
+@media screen and (min-width: 769px) {
+  .logo-image {
+    max-width: 500px;
+    transform: scale(1.5);
+  }
+  
+  .logo-container {
+    padding: 3rem 2rem;
+  }
+}
+
+/* Tablet styles */
+@media screen and (max-width: 768px) and (min-width: 481px) {
+  .logo-image {
+    max-width: 400px;
+    transform: scale(1.2);
+  }
+  
+  .logo-container {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* Mobile styles */
+@media screen and (max-width: 480px) {
+  .logo-image {
+    max-width: 300px;
+    transform: scale(1);
+  }
+  
+  .logo-container {
+    padding: 1.5rem 1rem;
+  }
+}
+
+/* Extra small mobile */
+@media screen and (max-width: 320px) {
+  .logo-image {
+    max-width: 250px;
+    transform: scale(0.9);
+  }
+  
+  .logo-container {
+    padding: 1rem 0.5rem;
+  }
+}
+
+/* Prevent overflow on mobile */
+@media screen and (max-width: 768px) {
+  .logo-container {
+    overflow: hidden;
+  }
 }
 
 /* Social Icons Container */
@@ -509,29 +698,16 @@
 }
 
 /* FORUM */
-.search-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border-bottom: 2px solid white;
-  margin-bottom: 30px;
-  padding-bottom: 10px;
+.forum-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.search-bar input {
-  background: transparent;
-  border: none;
-  font-family: inherit;
-  color: white;
-  font-size: 14px;
-  width: 100%;
-  outline: none;
+.giscus-container {
+    margin-top: 30px;
 }
 
-.search-icon {
-  font-size: 18px;
-  margin-left: 10px;
-}
 
 .forum-grid {
   display: grid;
