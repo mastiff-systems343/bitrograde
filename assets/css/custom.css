@@ -16,7 +16,7 @@
 } 
 
 :root{
-  --nav-max-width: 900px; /* smaller → everything sits closer to center */
+  --nav-max-width: 1200px; /* smaller → everything sits closer to center */
 }
 
 /* Base nav */
@@ -24,7 +24,6 @@ nav.site-nav {
   position: relative;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* menu left, .nav-center fills remaining space */
   padding: 0.75rem 1rem;
   background: #0a0a0f;
 }
@@ -48,7 +47,7 @@ nav.site-nav {
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* icons will sit to the right on mobile */
+  justify-content: flex-end; 
   gap: 1rem;
   padding: 0 0.5rem;
 }
@@ -108,8 +107,8 @@ nav.site-nav {
   }
 
   .nav-center {
-    justify-content: center;   /* center links + icons as one block */
-    gap: 2rem;                 /* space between links and icons — tweak as needed */
+    justify-content: space-between;   
+    gap: 2rem;                 
   }
 
   /* show links inline (not dropdown) */
@@ -450,6 +449,51 @@ nav.site-nav {
   font-weight: bold;
 }
 
+/* Responsive: Tablets */
+@media (max-width: 900px) {
+  .blog-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    padding: 15px;
+  }
+}
+
+/* Responsive: Phones */
+@media (max-width: 600px) {
+  .blog-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 10px;
+  }
+
+  .post {
+    padding: 15px;
+    min-height: auto;
+  }
+
+  .post h2 {
+    font-size: 12px;
+  }
+
+  .excerpt {
+    font-size: 13px;
+  }
+
+  .author,
+  .categories {
+    font-size: 9px;
+  }
+
+  .post-image {
+    height: 120px;
+  }
+
+  .pagination a,
+  .pagination span {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+}
 
 /* SHOP */
 .shop-container {
@@ -561,6 +605,64 @@ nav.site-nav {
 }
 .buy-btn:hover {
   background-color: #4438ff;
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .shop-container {
+    gap: 20px;
+  }
+}
+
+/* Phones */
+@media (max-width: 600px) {
+  .shop-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0 10px;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+    order: -1; /* Sidebar goes above the grid */
+  }
+
+  .shop-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+  }
+
+  .shop-card {
+    padding: 12px;
+  }
+
+  .shop-card h4 {
+    font-size: 14px;
+  }
+
+  .price-tag {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  .buy-btn {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+  }
+
+  .sold-out {
+    font-size: 9px;
+    padding: 3px 6px;
+  }
 }
 
 /* PRODUCTS */
@@ -699,7 +801,7 @@ nav.site-nav {
 
 /* FORUM */
 .forum-container {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
