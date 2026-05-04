@@ -7,7 +7,7 @@
   new_window: false
   highlight: false
 - name: Forums
-  link: /forum/
+  link: https://forum.bitrograde.com/
   new_window: false
   highlight: false
 - name: Blog
