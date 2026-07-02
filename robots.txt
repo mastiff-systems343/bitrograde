@@ -1,0 +1,4 @@
+User-agent: *
+Sitemap: https://bitrograde.com/sitemap.xml
+User-agent: GPTBot
+Disallow: /
