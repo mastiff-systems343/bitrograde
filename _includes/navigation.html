@@ -5,8 +5,14 @@
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="menu-icon">☰</label>
 
-    <!-- CENTERED GROUP (links + icons) -->
+    <!-- CENTERED GROUP (logo + links + icons) -->
     <div class="nav-center">
+
+      <!-- Logo -->
+      <a href="{{ site.baseurl }}/" class="site-logo">
+        <img src="{{ site.baseurl }}/images/bitrograde-logo.png" alt="Bitrograde logo" />
+      </a>
+
       <!-- Navigation Links -->
       <div class="nav-links">
         {% for link in site.data.navigation %}
@@ -33,6 +39,7 @@
           {% include social-icon.html icon="GitHub" %}
         </a>
       </div>
+
     </div>
 
   </nav>
