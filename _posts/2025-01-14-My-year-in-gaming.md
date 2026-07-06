@@ -3,7 +3,7 @@ title: "My year in gaming"
 author: Chris Scheidies, Owner
 category: devlog, career
 excerpt: >
-  A love-hate Call of Duty arc, a Nemesis System that changed everything, and the games I'm counting down to in 2025 — here's my year in gaming.
+  Steam Deck, Analog Pocket, iPad, my year in gaming happened on the go. Here's what made the cut.
 image: "/images/blog/2-zelda.png"
 date: 2025-01-14
 layout: post

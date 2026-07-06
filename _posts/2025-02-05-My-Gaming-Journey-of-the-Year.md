@@ -3,7 +3,7 @@ title: "My Gaming Journey of the Year"
 author: John David Lao, Game Developer
 category: devlog, career
 excerpt: >
-  A love-hate Call of Duty arc, a Nemesis System that changed everything, and the games I'm counting down to in 2025 — here's my year in gaming.
+  A love-hate Call of Duty arc, a Nemesis System that changed everything, and the games I'm counting down to in 2025, here's my year in gaming.
 image: "/images/blog/3-cod.png"
 date: 2025-02-05
 layout: post
