@@ -1,9 +1,9 @@
 - name: About
-  link: /about/
+  link: /#crew
   new_window: false
   highlight: false
 - name: Games
-  link: /games/
+  link: /#mission-control
   new_window: false
   highlight: false
 - name: Forums
@@ -11,7 +11,7 @@
   new_window: false
   highlight: false
 - name: Blog
-  link: /blog/
+  link: /#flight-log
   new_window: false
   highlight: false
 - name: Shop

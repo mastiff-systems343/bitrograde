@@ -2,49 +2,149 @@
 title: Home
 ---
 
-<section class="relative w-100 vh-100 overflow-hidden flex items-center justify-center">
+<section class="relative w-100 vh-100 overflow-hidden flex items-center justify-center" style="background-color: rgb(10, 4, 16, 0.9);">
   <!-- Blurred Background Image -->
   <img src="{{ site.baseurl }}/images/home/Universe.gif" alt="Universe Background" class="absolute top-0 left-0 w-100 h-100 object-cover z-0">
 
   <!-- Main content container -->
   <div class="relative z-2 flex flex-column flex-row-l items-center justify-center-l pa4-l pa3 tc tc-l">
     <div class="mw8">
-      <h1 class="f2 f1-l white ttu tracked-tight mb3 lh-title">
+      <h1 class="ttu">
         Building Our Own Universe
       </h1>
       <p class="f5 f4-l white-90 lh-copy mb3">
-        Bitrograde started with a kid, a Commodore 64, and code copied from magazines nobody explained in the 80s. He never stopped. He just eventually found the rest of us, scattered across the Pacific, doing the same unreasonable thing. We're proof that great games don't need big budgets. Just people who give a damn.
+        Bitrograde started with a kid, a Commodore 64, and code copied from magazines nobody explained in the 80s. He never stopped. He just eventually found the rest of us, scattered across the Pacific. We're proof that great games don't need big studios. Just people who give a damn.
       </p>
-<div class="btn-wrapper flex justify-center">
-  <a href="https://forum.bitrograde.com/" class="btn">
-    <strong>INITIATE CONTACT</strong>
-    <div id="container-stars">
-      <div id="stars"></div>
-    </div>
-    <div id="glow">
-      <div class="circle"></div>
-      <div class="circle"></div>
-    </div>
-  </a>
-</div>
+      <div class="btn-wrapper flex justify-center">
+        <a href="https://forum.bitrograde.com/" class="btn">
+          <strong>INITIATE CONTACT</strong>
+          <div id="container-stars">
+            <div id="stars"></div>
+          </div>
+          <div id="glow">
+            <div class="circle"></div>
+            <div class="circle"></div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="pv5 ph3 flex flex-column items-center justify-center tc">
-  <h2 class="f2 f1-ns fw7 mb3" style="color: #fff;">
-    MISSION CONTROL
-  </h2>
+<section id="mission-control" class="pv5 ph3 flex flex-column items-center justify-center tc" style="background-color: rgb(10, 4, 16, 0.7);">
+  <h2>MISSION CONTROL</h2>
+
+  <div class="mc-wrap">
+
+    <div class="mc-topbar">
+      <div class="mc-pills" id="mcPills"></div>
+      <div class="mc-controls">
+        <select id="mcOrderSelect">
+          <option value="default">Default Order</option>
+          <option value="alpha">A–Z</option>
+          <option value="status">Status</option>
+        </select>
+        <div class="mc-view-toggle">
+          <button id="mcBtnFeatured" class="active" title="Featured view">▭</button>
+          <button id="mcBtnGrid" title="Grid view">▦</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Featured carousel view -->
+    <div id="mcFeaturedView" class="mc-carousel">
+      <div class="mc-arrow left" id="mcPrevBtn">‹</div>
+      <div class="mc-arrow right" id="mcNextBtn">›</div>
+      <div class="mc-card">
+        <div class="mc-banner" id="mcBannerEl">
+          <div class="mc-banner-content" id="mcBannerContent"></div>
+        </div>
+        <div class="mc-body">
+          <p class="mc-eyebrow" id="mcEyebrow"></p>
+          <h2 class="mc-title" id="mcCardTitle"></h2>
+          <p class="mc-desc" id="mcCardDesc"></p>
+          <div class="mc-foot">
+            <div class="mc-status" id="mcCardStatus"></div>
+            <a class="mc-see-more" id="mcSeeMoreBtn" href="#">See more</a>
+          </div>
+        </div>
+      </div>
+      <div class="mc-dots" id="mcDots"></div>
+    </div>
+
+    <!-- Grid view: list of games -->
+    <div id="mcGridView" class="mc-grid mc-hidden"></div>
+
+  </div>
 </section>
 
-<section class="pv5 ph3 flex flex-column items-center justify-center tc">
-  <h2 class="f2 f1-ns fw7 mb3" style="color: #fff;">
-    FLIGHT LOG
-  </h2>
+<section id="flight-log" class="pv5 ph3 flex flex-column items-center justify-center tc" style="background-color: rgb(10, 4, 16, 0.7);">
+  <h2>FLIGHT LOG</h2>
+
+  <div class="bc-wrap">
+    <div class="bc-carousel">
+      <div class="bc-arrow left" id="bcPrevBtn">‹</div>
+      <div class="bc-arrow right" id="bcNextBtn">›</div>
+      <div class="bc-grid" id="bcGrid"></div>
+    </div>
+    <div class="bc-dots" id="bcDots"></div>
+  </div>
 </section>
 
-<section class="pv5 ph3 flex flex-column items-center justify-center tc">
-  <h2 class="f2 f1-ns fw7 mb3" style="color: #fff;">
-    THE CREW
-  </h2>
+<section id="crew" class="pv5 ph3 flex flex-column items-center justify-center tc" style="background-color: rgb(10, 4, 16, 0.7);">
+  <h2>THE CREW</h2>
+ 
+  <div class="crew-wrap">
+    <div class="crew-grid">
+      {% assign sorted_crew = site.crew | sort: "order" %}
+      {% for member in sorted_crew %}
+      <div class="crew-member">
+        <div class="crew-photo" style="background-image:url('{{ member.photo | relative_url }}');"></div>
+        <h3 class="crew-name">{{ member.name }}</h3>
+        <p class="crew-role">{{ member.role }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
+ 
+
+<script>
+  // Data hand-off from the Jekyll _games collection.
+  // This is the only piece that has to stay inline, since Liquid
+  // renders it at build time — everything else lives in mission-control.js
+  {% assign mc_sorted_games = site.games | sort: "order" %}
+  window.mcGames = [
+    {% for game in mc_sorted_games %}
+    {
+      genre: {{ game.genre | jsonify }},
+      eyebrow: {{ game.eyebrow | jsonify }},
+      title: {{ game.title | jsonify }},
+      desc: {{ game.description | jsonify }},
+      status: {{ game.status | jsonify }},
+      image: {{ game.image | relative_url | jsonify }},
+      demoAvailable: {{ game.demo_available | jsonify }},
+      url: {{ game.url | relative_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  // Data hand-off from the Jekyll _posts collection — ALL posts, newest first.
+  // JS pages them 3 at a time.
+  {% assign all_blogs = site.posts | sort: "date" | reverse %}
+  window.bcBlogs = [
+    {% for post in all_blogs %}
+    {
+      title: {{ post.title | jsonify }},
+      category: {{ post.category | jsonify }},
+      excerpt: {{ post.excerpt | jsonify }},
+      image: {{ post.image | relative_url | jsonify }},
+      date: {{ post.date | date: "%b %-d, %Y" | jsonify }},
+      url: {{ post.url | relative_url | jsonify }}
+    }{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+</script>
+
+<script src="{{ '/assets/js/blog-cards.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/mission-control.js' | relative_url }}"></script>

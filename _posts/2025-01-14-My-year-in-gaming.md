@@ -1,10 +1,12 @@
 ---
-layout: post
 title: "My year in gaming"
 author: Chris Scheidies, Owner
-categories: [devlog, career]
+category: devlog, career
+excerpt: >
+  A love-hate Call of Duty arc, a Nemesis System that changed everything, and the games I'm counting down to in 2025 — here's my year in gaming.
 image: "/images/blog/2-zelda.png"
-permalink: /blog/2/
+date: 2025-01-14
+layout: post
 ---
 
 My favorite games of the year so far.

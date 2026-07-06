@@ -1,11 +1,14 @@
 ---
-layout: post
 title: "How I unexpectedly became a game developer."
 author: John David Lao, Game Developer
-categories: [devlog, career]
+category: devlog, career
+excerpt: >
+  From a failed IT project to building our first game, here's how I stumbled into game development.
 image: "/images/blog/1-game-dev.jpg"
-permalink: /blog/1/
+date: 2024-09-19
+layout: post
 ---
+
 
 **A Twist of Fate**
 

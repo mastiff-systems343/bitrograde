@@ -1,10 +1,12 @@
 ---
-layout: post
 title: "My Gaming Journey of the Year"
 author: John David Lao, Game Developer
-categories: [devlog, career]
+category: devlog, career
+excerpt: >
+  A love-hate Call of Duty arc, a Nemesis System that changed everything, and the games I'm counting down to in 2025 — here's my year in gaming.
 image: "/images/blog/3-cod.png"
-permalink: /blog/3/
+date: 2025-02-05
+layout: post
 ---
 
 Oh boy, I could probably talk for hours about this since I played A LOT of games last year. However, there are games I played that hits me the most. I would like to start from what I consider my guilty pleasure lol. For my guilty pleasure it will be Call of Duty. I know I’m late from the party, but my first Call of Duty game was modern warfare 3. I have a love or hate relationship for that game mainly because sometimes it can get too competitive. It was the source of my fun and stress lmao. Mostly, I play that game when I want to release some stress. It helps, but after a few gaming sessions I’ll quit especially when I start feel stressed about it. I believe that games should be a way to relieve stress, not the reason to feel stressed. Call of Duty gives me both of those feelings lol but overall it’s good, it gives me shits and giggles.

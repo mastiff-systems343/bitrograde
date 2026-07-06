@@ -30,6 +30,8 @@ collections:
     output: true
   products:
     output: true
+  crew:
+    output: false
 
 # Defaults
 defaults:

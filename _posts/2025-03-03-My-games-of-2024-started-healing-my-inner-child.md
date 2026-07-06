@@ -1,10 +1,12 @@
 ---
-layout: post
 title: "My games of 2024 started healing my inner child"
 author: MJ Torres, Designer
-categories: [devlog, career]
+category: devlog, career
+excerpt: >
+  From cozy management sims to a GTA IV nostalgia trip at the pisonet — here's how gaming healed my inner kid in 2024.
 image: "/images/blog/4-change.png"
-permalink: /blog/4/
+date: 2025-03-03
+layout: post
 ---
 
 2024 was surprisingly one hell of a year, probably why I stuck to mostly cozy games at the time. I wasn’t really much of the type to see which games are trending, or which games are newly released. It was 99% waiting for Steam sales, window shopping, drooling over my wishlists that I’ve been craving to get. ;-; But hey, all was worth it!
